@@ -9,6 +9,9 @@ public class TileRemover : MonoBehaviour
     [SerializeField]
     private Camera mainCamera;
 
+    [SerializeField]
+    private GameObject disappearEffectPrefab;
+
     private void Awake()
     {
         if (mainCamera == null)
@@ -33,9 +36,20 @@ public class TileRemover : MonoBehaviour
         Vector3Int cellPosition =
             tilemap.WorldToCell(mouseWorldPosition);
 
-        if (tilemap.HasTile(cellPosition))
+        if (!tilemap.HasTile(cellPosition))
         {
-            tilemap.SetTile(cellPosition, null);
+            return;
         }
+
+        Vector3 effectPosition =
+            tilemap.GetCellCenterWorld(cellPosition);
+
+        Instantiate(
+            disappearEffectPrefab,
+            effectPosition,
+            Quaternion.identity
+        );
+
+        tilemap.SetTile(cellPosition, null);
     }
 }

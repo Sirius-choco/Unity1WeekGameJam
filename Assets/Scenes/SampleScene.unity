@@ -1294,6 +1294,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tilemap: {fileID: 1961724094}
   mainCamera: {fileID: 0}
+  disappearEffectPrefab: {fileID: 1447486898700385543, guid: 82e7f8b673d93da40847c1ead30b9498, type: 3}
 --- !u!1 &1973436256
 GameObject:
   m_ObjectHideFlags: 0
