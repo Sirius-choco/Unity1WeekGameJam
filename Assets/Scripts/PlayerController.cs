@@ -31,6 +31,8 @@ public class PlayerController : MonoBehaviour
     Animator animator;
 
 
+
+
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
@@ -91,5 +93,18 @@ public class PlayerController : MonoBehaviour
     {
         isFacingRight = !isFacingRight;
         spriteRenderer.flipX = !spriteRenderer.flipX;
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Horizontal"))
+        {
+            Debug.Log("MoveCamera_horizon called with player_x: " + transform.position.x);
+            Cameramove.instance.MoveCamera_horizon(transform.position.x);
+        }
+        else if (collision.gameObject.CompareTag("Vertical"))
+        {
+            Debug.Log("MoveCamera_vertical called with player_y: " + transform.position.y);
+            Cameramove.instance.MoveCamera_vertical(transform.position.y);
+        }
     }
 }
