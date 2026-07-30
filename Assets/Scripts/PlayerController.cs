@@ -22,6 +22,7 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private float horizontalInput;
     private bool jumpRequested;
+
     
     //キーを押した方向にプレイヤが向くようにする
     private SpriteRenderer spriteRenderer;
@@ -29,9 +30,6 @@ public class PlayerController : MonoBehaviour
 
     //プレイヤのアニメーション
     Animator animator;
-
-
-
 
     private void Awake()
     {
@@ -52,6 +50,7 @@ public class PlayerController : MonoBehaviour
             jumpRequested = true;
         }
     }
+
 
     private void FixedUpdate()
     {
