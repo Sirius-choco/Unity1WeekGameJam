@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1107 &-4061705359161818740
+--- !u!1107 &-8415100733040043774
 AnimatorStateMachine:
   serializedVersion: 6
   m_ObjectHideFlags: 1
@@ -10,7 +10,7 @@ AnimatorStateMachine:
   m_Name: Base Layer
   m_ChildStates:
   - serializedVersion: 1
-    m_State: {fileID: 3621309499548408301}
+    m_State: {fileID: 4163695292629966766}
     m_Position: {x: 200, y: 0, z: 0}
   m_ChildStateMachines: []
   m_AnyStateTransitions: []
@@ -21,7 +21,7 @@ AnimatorStateMachine:
   m_EntryPosition: {x: 50, y: 120, z: 0}
   m_ExitPosition: {x: 800, y: 120, z: 0}
   m_ParentStateMachinePosition: {x: 800, y: 20, z: 0}
-  m_DefaultState: {fileID: 3621309499548408301}
+  m_DefaultState: {fileID: 4163695292629966766}
 --- !u!91 &9100000
 AnimatorController:
   m_ObjectHideFlags: 0
@@ -34,7 +34,7 @@ AnimatorController:
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
-    m_StateMachine: {fileID: -4061705359161818740}
+    m_StateMachine: {fileID: -8415100733040043774}
     m_Mask: {fileID: 0}
     m_Motions: []
     m_Behaviours: []
@@ -44,14 +44,14 @@ AnimatorController:
     m_IKPass: 0
     m_SyncedLayerAffectsTiming: 0
     m_Controller: {fileID: 9100000}
---- !u!1102 &3621309499548408301
+--- !u!1102 &4163695292629966766
 AnimatorState:
   serializedVersion: 6
   m_ObjectHideFlags: 1
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: DisappearEffect
+  m_Name: NomalDesappear
   m_Speed: 1
   m_CycleOffset: 0
   m_Transitions: []
@@ -64,7 +64,7 @@ AnimatorState:
   m_MirrorParameterActive: 0
   m_CycleOffsetParameterActive: 0
   m_TimeParameterActive: 0
-  m_Motion: {fileID: 7400000, guid: afe51c4f41e497743b4049a06844361a, type: 2}
+  m_Motion: {fileID: 7400000, guid: 9f38f36c53f08d54daa9d789e390f336, type: 2}
   m_Tag: 
   m_SpeedParameter: 
   m_MirrorParameter: 
