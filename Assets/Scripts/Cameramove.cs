@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class Cameramove : MonoBehaviour
 {
-    GameObject mainCamera;
+    static GameObject mainCamera;
 
-    bool isMoving_horizontal = false;
-    bool isMoving_vertical = false;
+    public bool isMoving_horizontal = false;
+    public bool isMoving_vertical = false;
     int moveDirection_horizontal = 0; // 1 for right, -1 for left
     int moveDirection_vertical = 0; // 1 for up, -1 for down
     Vector3 cameraPos;

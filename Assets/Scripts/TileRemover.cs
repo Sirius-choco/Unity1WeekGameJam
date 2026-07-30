@@ -35,7 +35,7 @@ public class TileRemover : MonoBehaviour
 
         Vector3Int cellPosition =
             tilemap.WorldToCell(mouseWorldPosition);
-
+        Debug.Log("TileRemover: RemoveClickedTile called at cell position " + cellPosition);
         if (!tilemap.HasTile(cellPosition))
         {
             return;
