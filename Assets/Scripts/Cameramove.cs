@@ -73,8 +73,8 @@ public class Cameramove : MonoBehaviour
     {
         if(isMoving_horizontal)
         {
-            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, new Vector3(mainCamera.transform.position.x + (17 * moveDirection_horizontal), mainCamera.transform.position.y, mainCamera.transform.position.z), 0.001f);
-            if(Mathf.Abs(mainCamera.transform.position.x - (cameraPos.x + (17 * moveDirection_horizontal))) < 0.01f)
+            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, new Vector3(mainCamera.transform.position.x + (17 * moveDirection_horizontal), mainCamera.transform.position.y, mainCamera.transform.position.z), 0.01f);
+            if(Mathf.Abs(mainCamera.transform.position.x - (cameraPos.x + (17 * moveDirection_horizontal))) < 0.1f)
             {
                 mainCamera.transform.position = new Vector3(cameraPos.x + (17 * moveDirection_horizontal), mainCamera.transform.position.y, mainCamera.transform.position.z);
                 isMoving_horizontal = false;
@@ -82,8 +82,8 @@ public class Cameramove : MonoBehaviour
         }
         if (isMoving_vertical)
         {
-            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y + (10 * moveDirection_vertical), mainCamera.transform.position.z), 0.001f);
-            if(Mathf.Abs(mainCamera.transform.position.y - (cameraPos.y + (10 * moveDirection_vertical))) < 0.01f)
+            mainCamera.transform.position = Vector3.Lerp(mainCamera.transform.position, new Vector3(mainCamera.transform.position.x, mainCamera.transform.position.y + (10 * moveDirection_vertical), mainCamera.transform.position.z), 0.01f);
+            if(Mathf.Abs(mainCamera.transform.position.y - (cameraPos.y + (10 * moveDirection_vertical))) < 0.1f)
             {
                 mainCamera.transform.position = new Vector3(mainCamera.transform.position.x, cameraPos.y + (10 * moveDirection_vertical), mainCamera.transform.position.z);
                 isMoving_vertical = false;

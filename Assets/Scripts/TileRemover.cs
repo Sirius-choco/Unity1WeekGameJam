@@ -12,6 +12,9 @@ public class TileRemover : MonoBehaviour
     [SerializeField]
     private GameObject disappearEffectPrefab;
 
+    public Sprite[] sprites;
+    private bool isRemoving = false;
+
     private void Awake()
     {
         if (mainCamera == null)
@@ -40,6 +43,18 @@ public class TileRemover : MonoBehaviour
         {
             return;
         }
+        Debug.Log(tilemap.GetSprite(cellPosition));
+        foreach (var sprite in sprites)
+        {
+            if (tilemap.GetSprite(cellPosition) == sprite)
+            {
+                isRemoving = true; // Do not remove the tile if it matches any of the specified sprites
+            }
+        }
+        if (!isRemoving)
+        {
+            return;
+        }
 
         Vector3 effectPosition =
             tilemap.GetCellCenterWorld(cellPosition);
@@ -51,5 +66,6 @@ public class TileRemover : MonoBehaviour
         );
 
         tilemap.SetTile(cellPosition, null);
+        isRemoving = false; // Reset the flag for the next tile removal
     }
 }
