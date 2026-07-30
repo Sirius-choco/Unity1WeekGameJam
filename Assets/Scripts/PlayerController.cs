@@ -22,10 +22,23 @@ public class PlayerController : MonoBehaviour
     private Rigidbody2D rb;
     private float horizontalInput;
     private bool jumpRequested;
+    
+    //キーを押した方向にプレイヤが向くようにする
+    private SpriteRenderer spriteRenderer;
+    [HideInInspector] public bool isFacingRight = true;
+
+    //プレイヤのアニメーション
+    Animator animator;
+
+
+
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
+        isFacingRight = true;
     }
 
     private void Update()
@@ -46,6 +59,16 @@ public class PlayerController : MonoBehaviour
 
         // 横方向の速度を変更
         velocity.x = horizontalInput * moveSpeed;
+        animator.SetBool("Move", horizontalInput != 0);
+
+        if(horizontalInput > 0 && !isFacingRight)
+        {
+            Flip();
+        }
+        else if(horizontalInput < 0 && isFacingRight)
+        {
+            Flip();
+        }
 
         // 縦方向にジャンプ速度を設定
         if (jumpRequested)
@@ -64,5 +87,24 @@ public class PlayerController : MonoBehaviour
             groundCheckRadius,
             groundLayer
         ) != null;
+    }
+
+    public void Flip()
+    {
+        isFacingRight = !isFacingRight;
+        spriteRenderer.flipX = !spriteRenderer.flipX;
+    }
+    void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Horizontal"))
+        {
+            Debug.Log("MoveCamera_horizon called with player_x: " + transform.position.x);
+            Cameramove.instance.MoveCamera_horizon(transform.position.x);
+        }
+        else if (collision.gameObject.CompareTag("Vertical"))
+        {
+            Debug.Log("MoveCamera_vertical called with player_y: " + transform.position.y);
+            Cameramove.instance.MoveCamera_vertical(transform.position.y);
+        }
     }
 }
