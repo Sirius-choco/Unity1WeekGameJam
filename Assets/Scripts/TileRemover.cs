@@ -74,7 +74,15 @@ public class TileRemover : MonoBehaviour
             {
                 if(tilemap.GetSprite(new Vector3Int(cellPosition.x + i - 8, cellPosition.y + j -5, 0)) == Melt)
                 {
+                    if(iceEffectPrefab!= null)
+                    {
+                        Instantiate(iceEffectPrefab, 
+                            tilemap.GetCellCenterWorld(new Vector3Int(cellPosition.x + i - 8, cellPosition.y + j - 5, 0)),
+                            Quaternion.identity);
+
+                    }
                     tilemap.SetTile(new Vector3Int(cellPosition.x + i - 8, cellPosition.y + j -5, 0), null);
+
                 } 
             }
         }
@@ -115,7 +123,7 @@ public class TileRemover : MonoBehaviour
             return;
         }
 
-        // 通常・氷タイルを1個だけ消す
+        // 通常タイルを1個だけ消す
         RemoveTile(cellPosition);
 
         
