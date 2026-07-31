@@ -19,6 +19,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private LayerMask groundLayer;
 
+    [Header("Sound")]
+    [SerializeField]
+    private AudioClip jumpSound;
+
+    [SerializeField]
+    private AudioClip walkSound;
+
+    [SerializeField]
+    private AudioSource walkAudioSource;
+
     private Rigidbody2D rb;
     private float horizontalInput;
     private bool jumpRequested;
@@ -38,6 +48,8 @@ public class PlayerController : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
+        if(walkAudioSource==null)
+        walkAudioSource = GetComponent<AudioSource>();
         isFacingRight = true;
         playerPos = transform.position;
     }
@@ -51,7 +63,10 @@ public class PlayerController : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && IsGrounded())
         {
             jumpRequested = true;
+            if (SoundManager.instance != null && jumpSound != null)
+                SoundManager.instance.PlaySE(jumpSound);            
         }
+        UpdateWalkSound();
     }
 
 
@@ -116,5 +131,26 @@ public class PlayerController : MonoBehaviour
         {
             rb.AddForce(new Vector2(0, 50));
         }
+    }
+
+    private void UpdateWalkSound()
+    {
+        if (walkAudioSource == null)
+            return;
+        
+
+        bool isWalking = horizontalInput != 0 && IsGrounded();
+
+        if (isWalking)
+        {
+            if (!walkAudioSource.isPlaying)
+                walkAudioSource.Play();
+        }
+        else
+        {
+            if (walkAudioSource.isPlaying)
+                walkAudioSource.Stop();
+        }
+        
     }
 }

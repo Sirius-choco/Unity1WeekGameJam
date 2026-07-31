@@ -231,6 +231,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1723882331084054928, guid: 5e3bc51d9dcb84748a77b83c05bb1a87, type: 3}
+      propertyPath: blockGenerateSound
+      value: 
+      objectReference: {fileID: 8300000, guid: afa2446cb3d2bf44bb389c345f07d84a, type: 3}
     - target: {fileID: 5163640816403133440, guid: 5e3bc51d9dcb84748a77b83c05bb1a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 23.01
@@ -1558,6 +1562,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1723882331084054928, guid: 5e3bc51d9dcb84748a77b83c05bb1a87, type: 3}
+      propertyPath: blockGenerateSound
+      value: 
+      objectReference: {fileID: 8300000, guid: afa2446cb3d2bf44bb389c345f07d84a, type: 3}
     - target: {fileID: 5163640816403133440, guid: 5e3bc51d9dcb84748a77b83c05bb1a87, type: 3}
       propertyPath: m_LocalPosition.x
       value: 12.5

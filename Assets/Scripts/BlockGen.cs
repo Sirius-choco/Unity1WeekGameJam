@@ -9,8 +9,15 @@ public class BlockGen : MonoBehaviour
     private Ray ray;
     private RaycastHit2D hit;
 
+    [Header("Sound")]
+    [SerializeField]
+    private AudioClip blockGenerateSound;
+
     void BlockGenerate()
     {
+        if (SoundManager.instance != null && blockGenerateSound != null)
+            SoundManager.instance.PlaySE(blockGenerateSound);
+
         Instantiate(MoveBlock, this.transform.position, Quaternion.identity);
         Destroy(this.gameObject);
     }
