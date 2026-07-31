@@ -2608,6 +2608,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   tilemap: {fileID: 1961724094}
+  mainCamera: {fileID: 519420031}
+  bombTile: {fileID: 11400000, guid: 9eacf0e87e26b9f448d48421fdabc482, type: 2}
+  iceTile: {fileID: 11400000, guid: 6ed4a1d1ec186bc4a94403210a9200ea, type: 2}
+  unremovableTiles: []
+  normalEffectPrefab: {fileID: 303484231686026940, guid: 6b186527b080b084cbe33010011f8b4e, type: 3}
+  bombEffectPrefab: {fileID: 7531988292681969801, guid: a338f8ebf3718cb4899d6c67a83d6a16, type: 3}
+  iceEffectPrefab: {fileID: 5262930379066569760, guid: 338edd6eabeeefc4e8b28784ba1792c3, type: 3}
   mainCamera: {fileID: 0}
   disappearEffectPrefab: {fileID: 1447486898700385543, guid: 82e7f8b673d93da40847c1ead30b9498, type: 3}
   sprites:
