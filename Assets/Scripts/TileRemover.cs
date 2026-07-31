@@ -32,6 +32,19 @@ public class TileRemover : MonoBehaviour
     [SerializeField]
     private GameObject iceEffectPrefab;
 
+    //効果音関連
+    [SerializeField]
+    private AudioClip normalRemovalSound;
+
+    [SerializeField]
+    private AudioClip bombExplosionSound;
+    [SerializeField]
+    private AudioClip iceMeltSound;
+    [SerializeField]
+    private AudioClip iceReflectionSound;
+    [SerializeField]
+    private AudioClip reflectionSound;
+
     public Sprite[] sprites;
 
     public Sprite Melt;
@@ -74,7 +87,16 @@ public class TileRemover : MonoBehaviour
             {
                 if(tilemap.GetSprite(new Vector3Int(cellPosition.x + i - 8, cellPosition.y + j -5, 0)) == Melt)
                 {
+                    if(iceEffectPrefab!= null)
+                    {
+                        Instantiate(iceEffectPrefab, 
+                            tilemap.GetCellCenterWorld(new Vector3Int(cellPosition.x + i - 8, cellPosition.y + j - 5, 0)),
+                            Quaternion.identity);
+
+                    }
+                    PlayRemovalSound(iceTile);
                     tilemap.SetTile(new Vector3Int(cellPosition.x + i - 8, cellPosition.y + j -5, 0), null);
+
                 } 
             }
         }
@@ -108,6 +130,19 @@ public class TileRemover : MonoBehaviour
         {
             return;
         }
+
+        // 氷ブロックは消さず、反射音だけ鳴らす
+        if (clickedTile == iceTile)
+        {
+            if (SoundManager.instance != null &&
+                iceReflectionSound != null)
+            {
+                SoundManager.instance.PlaySE(iceReflectionSound);
+            }
+
+            return;
+        }
+
         // 爆弾なら周囲8マスも消す
         if (clickedTile == bombTile)
         {
@@ -115,7 +150,17 @@ public class TileRemover : MonoBehaviour
             return;
         }
 
-        // 通常・氷タイルを1個だけ消す
+        // 消去不能Tile、またはspritesに入っていないSprite
+        if (!IsRemovable(clickedTile) ||
+            !IsRemovableSprite(cellPosition))
+        {
+            PlayReflectionSound();
+            return;
+        }
+
+        
+
+        // 通常タイルを1個だけ消す
         RemoveTile(cellPosition);
 
         
@@ -137,6 +182,7 @@ public class TileRemover : MonoBehaviour
         }
 
         // 爆弾本体を削除
+        PlayRemovalSound(bombTile);
         tilemap.SetTile(bombPosition, null);
 
         // 周囲8マスを調べる
@@ -201,7 +247,8 @@ public class TileRemover : MonoBehaviour
                 Quaternion.identity
             );
         }
-
+        
+        PlayRemovalSound(targetTile);
         tilemap.SetTile(cellPosition, null);
         isRemoving = false; // Reset the flag for the next tile removal
     }
@@ -235,5 +282,55 @@ public class TileRemover : MonoBehaviour
 
         // 爆弾でも氷でもないタイル
         return normalEffectPrefab;
+    }
+
+    private void PlayRemovalSound(TileBase targetTile)
+    {
+        AudioClip sound = normalRemovalSound;
+
+        if (targetTile == bombTile)
+        {
+            sound = bombExplosionSound;
+        }
+        else if (targetTile == iceTile)
+        {
+            sound = iceMeltSound;
+        }
+
+        if (SoundManager.instance != null && sound != null)
+        {
+            SoundManager.instance.PlaySE(sound);
+        }
+    }
+
+    private bool IsRemovableSprite(Vector3Int cellPosition)
+    {
+        Sprite targetSprite = tilemap.GetSprite(cellPosition);
+
+        if (targetSprite == null ||
+            sprites == null ||
+            sprites.Length == 0)
+        {
+            return false;
+        }
+
+        foreach (Sprite removableSprite in sprites)
+        {
+            if (targetSprite == removableSprite)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void PlayReflectionSound()
+    {
+        if (SoundManager.instance != null &&
+            reflectionSound != null)
+        {
+            SoundManager.instance.PlaySE(reflectionSound);
+        }
     }
 }
