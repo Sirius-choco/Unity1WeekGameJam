@@ -424,6 +424,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   harricanePrefab: {fileID: 8265340461799792304, guid: ec09f09bb63c9f443bbd28005ede3aef, type: 3}
   whiteCloudPrefab: {fileID: 3166347511579168569, guid: 0ccc79146f78e454f8c402bb6e2b0c28, type: 3}
+  cloudClickSound: {fileID: 8300000, guid: bcdeaf7bbdbde904fa370a953a7e080d, type: 3}
 --- !u!1 &1012853916
 GameObject:
   m_ObjectHideFlags: 0
@@ -3620,7 +3621,6 @@ MonoBehaviour:
   normalEffectPrefab: {fileID: 303484231686026940, guid: 6b186527b080b084cbe33010011f8b4e, type: 3}
   bombEffectPrefab: {fileID: 7531988292681969801, guid: a338f8ebf3718cb4899d6c67a83d6a16, type: 3}
   iceEffectPrefab: {fileID: 5262930379066569760, guid: 338edd6eabeeefc4e8b28784ba1792c3, type: 3}
-  audioSource: {fileID: 431188950}
   normalRemovalSound: {fileID: 8300000, guid: b3ba205bb397b6445aaa7d74502ed8a3, type: 3}
   bombExplosionSound: {fileID: 8300000, guid: 8ee269116cfd70546929db0e348bdf7a, type: 3}
   iceMeltSound: {fileID: 8300000, guid: 9f787ba8925fcd94fb2faaa44f44e182, type: 3}
