@@ -23,6 +23,8 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private bool jumpRequested;
 
+    private Vector3 playerPos;
+
     
     //キーを押した方向にプレイヤが向くようにする
     private SpriteRenderer spriteRenderer;
@@ -37,6 +39,7 @@ public class PlayerController : MonoBehaviour
         spriteRenderer = GetComponent<SpriteRenderer>();
         animator = GetComponent<Animator>();
         isFacingRight = true;
+        playerPos = transform.position;
     }
 
     private void Update()
@@ -104,6 +107,14 @@ public class PlayerController : MonoBehaviour
         {
             Debug.Log("MoveCamera_vertical called with player_y: " + transform.position.y);
             Cameramove.instance.MoveCamera_vertical(transform.position.y);
+        }
+        
+    }
+    void OnTriggerStay2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag("Harricane"))
+        {
+            rb.AddForce(new Vector2(0, 50));
         }
     }
 }
