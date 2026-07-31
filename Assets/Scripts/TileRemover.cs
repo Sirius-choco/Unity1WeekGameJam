@@ -33,10 +33,23 @@ public class TileRemover : MonoBehaviour
     private GameObject iceEffectPrefab;
 
     public Sprite[] sprites;
+
+    public Sprite Melt;
     private bool isRemoving = false;
+    public static TileRemover instance;
+
 
     private void Awake()
     {
+        if (instance == null)
+        {
+            instance = this;
+            DontDestroyOnLoad(this.gameObject);
+        }
+        else
+        {
+            Destroy(this.gameObject);
+        }
         if (mainCamera == null)
         {
             mainCamera = Camera.main;
@@ -48,6 +61,22 @@ public class TileRemover : MonoBehaviour
         if (Input.GetMouseButtonDown(0))
         {
             RemoveClickedTile();
+        }
+    }
+
+    public void MeltIce()
+    {
+        Vector3Int cellPosition =
+            tilemap.WorldToCell(mainCamera.transform.position);
+        for(int i=0; i < 17; i++)
+        {
+            for(int j=0; j< 10; j++)
+            {
+                if(tilemap.GetSprite(new Vector3Int(cellPosition.x + i - 8, cellPosition.y + j -5, 0)) == Melt)
+                {
+                    tilemap.SetTile(new Vector3Int(cellPosition.x + i - 8, cellPosition.y + j -5, 0), null);
+                } 
+            }
         }
     }
 
