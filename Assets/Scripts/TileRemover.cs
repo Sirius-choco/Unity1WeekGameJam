@@ -32,6 +32,18 @@ public class TileRemover : MonoBehaviour
     [SerializeField]
     private GameObject iceEffectPrefab;
 
+    //効果音関連
+    [SerializeField]
+    private AudioSource audioSource;
+
+    [SerializeField]
+    private AudioClip normalRemovalSound;
+
+    [SerializeField]
+    private AudioClip bombExplosionSound;
+    [SerializeField]
+    private AudioClip iceMeltSound;
+
     public Sprite[] sprites;
 
     public Sprite Melt;
@@ -81,6 +93,7 @@ public class TileRemover : MonoBehaviour
                             Quaternion.identity);
 
                     }
+                    PlayRemovalSound(iceTile);
                     tilemap.SetTile(new Vector3Int(cellPosition.x + i - 8, cellPosition.y + j -5, 0), null);
 
                 } 
@@ -145,6 +158,7 @@ public class TileRemover : MonoBehaviour
         }
 
         // 爆弾本体を削除
+        PlayRemovalSound(bombTile);
         tilemap.SetTile(bombPosition, null);
 
         // 周囲8マスを調べる
@@ -209,7 +223,8 @@ public class TileRemover : MonoBehaviour
                 Quaternion.identity
             );
         }
-
+        
+        PlayRemovalSound(targetTile);
         tilemap.SetTile(cellPosition, null);
         isRemoving = false; // Reset the flag for the next tile removal
     }
@@ -243,5 +258,29 @@ public class TileRemover : MonoBehaviour
 
         // 爆弾でも氷でもないタイル
         return normalEffectPrefab;
+    }
+
+    private void PlayRemovalSound(TileBase targetTile)
+    {
+        if (audioSource == null)
+        {
+            return;
+        }
+
+        AudioClip sound = normalRemovalSound;
+
+        if (targetTile == bombTile)
+        {
+            sound = bombExplosionSound;
+        }
+        else if (targetTile == iceTile)
+        {
+            sound = iceMeltSound;
+        }
+
+        if (sound != null)
+        {
+            audioSource.PlayOneShot(sound);
+        }
     }
 }
