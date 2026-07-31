@@ -8,6 +8,9 @@ TagManager:
   - Vertical
   - Tilemap
   - Harricane
+  - Cloud
+  - Grid
+  - Controller
   layers:
   - Default
   - TransparentFX

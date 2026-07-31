@@ -162,8 +162,6 @@ public class TileRemover : MonoBehaviour
 
         // 通常タイルを1個だけ消す
         RemoveTile(cellPosition);
-
-        
     }
 
     private void ExplodeBomb(Vector3Int bombPosition)
