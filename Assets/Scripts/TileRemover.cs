@@ -34,9 +34,6 @@ public class TileRemover : MonoBehaviour
 
     //効果音関連
     [SerializeField]
-    private AudioSource audioSource;
-
-    [SerializeField]
     private AudioClip normalRemovalSound;
 
     [SerializeField]
@@ -262,11 +259,6 @@ public class TileRemover : MonoBehaviour
 
     private void PlayRemovalSound(TileBase targetTile)
     {
-        if (audioSource == null)
-        {
-            return;
-        }
-
         AudioClip sound = normalRemovalSound;
 
         if (targetTile == bombTile)
@@ -278,9 +270,9 @@ public class TileRemover : MonoBehaviour
             sound = iceMeltSound;
         }
 
-        if (sound != null)
+        if (SoundManager.instance != null && sound != null)
         {
-            audioSource.PlayOneShot(sound);
+            SoundManager.instance.PlaySE(sound);
         }
     }
 }
