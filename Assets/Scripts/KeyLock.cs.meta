@@ -3,7 +3,9 @@ guid: e0f810a95abaf744498fd3e7d82cc9ee
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - keylockPrefab: {fileID: 7330404134044482198, guid: 55f7c9dd864e2cc49bb4ed95145d4d6d, type: 3}
+  - keyGetSound: {fileID: 8300000, guid: b76d2f1cfc73b41478747b2c11fd1025, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 

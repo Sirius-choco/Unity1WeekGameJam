@@ -9,6 +9,11 @@ public class CloudManager : MonoBehaviour
     public GameObject harricanePrefab; // Assign the cloud prefab in the Inspector
 
     public GameObject whiteCloudPrefab; // Assign the cloud prefab in the Inspector
+
+    [Header("Sound")]
+    [SerializeField]
+    private AudioClip cloudClickSound; // Assign the sound clip in the Inspector
+
     private Vector3 cloudPosition;
 
     private Ray ray;
@@ -32,6 +37,8 @@ public class CloudManager : MonoBehaviour
 
     public void ClickCloud()
     {
+        if (SoundManager.instance != null && cloudClickSound != null)
+            SoundManager.instance.PlaySE(cloudClickSound);
         Instantiate(whiteCloudPrefab, cloudPosition, Quaternion.identity);
         Destroy(this.gameObject);
     }
