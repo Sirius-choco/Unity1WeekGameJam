@@ -40,6 +40,10 @@ public class TileRemover : MonoBehaviour
     private AudioClip bombExplosionSound;
     [SerializeField]
     private AudioClip iceMeltSound;
+    [SerializeField]
+    private AudioClip iceReflectionSound;
+    [SerializeField]
+    private AudioClip reflectionSound;
 
     public Sprite[] sprites;
 
@@ -126,12 +130,35 @@ public class TileRemover : MonoBehaviour
         {
             return;
         }
+
+        // 氷ブロックは消さず、反射音だけ鳴らす
+        if (clickedTile == iceTile)
+        {
+            if (SoundManager.instance != null &&
+                iceReflectionSound != null)
+            {
+                SoundManager.instance.PlaySE(iceReflectionSound);
+            }
+
+            return;
+        }
+
         // 爆弾なら周囲8マスも消す
         if (clickedTile == bombTile)
         {
             ExplodeBomb(cellPosition);
             return;
         }
+
+        // 消去不能Tile、またはspritesに入っていないSprite
+        if (!IsRemovable(clickedTile) ||
+            !IsRemovableSprite(cellPosition))
+        {
+            PlayReflectionSound();
+            return;
+        }
+
+        
 
         // 通常タイルを1個だけ消す
         RemoveTile(cellPosition);
@@ -273,6 +300,37 @@ public class TileRemover : MonoBehaviour
         if (SoundManager.instance != null && sound != null)
         {
             SoundManager.instance.PlaySE(sound);
+        }
+    }
+
+    private bool IsRemovableSprite(Vector3Int cellPosition)
+    {
+        Sprite targetSprite = tilemap.GetSprite(cellPosition);
+
+        if (targetSprite == null ||
+            sprites == null ||
+            sprites.Length == 0)
+        {
+            return false;
+        }
+
+        foreach (Sprite removableSprite in sprites)
+        {
+            if (targetSprite == removableSprite)
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    private void PlayReflectionSound()
+    {
+        if (SoundManager.instance != null &&
+            reflectionSound != null)
+        {
+            SoundManager.instance.PlaySE(reflectionSound);
         }
     }
 }

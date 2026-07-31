@@ -3617,13 +3617,16 @@ MonoBehaviour:
   mainCamera: {fileID: 519420031}
   bombTile: {fileID: 11400000, guid: 9eacf0e87e26b9f448d48421fdabc482, type: 2}
   iceTile: {fileID: 11400000, guid: 6ed4a1d1ec186bc4a94403210a9200ea, type: 2}
-  unremovableTiles: []
+  unremovableTiles:
+  - {fileID: 11400000, guid: 2bae3d24905a3ca44a8d88b75fe3f402, type: 2}
   normalEffectPrefab: {fileID: 303484231686026940, guid: 6b186527b080b084cbe33010011f8b4e, type: 3}
   bombEffectPrefab: {fileID: 7531988292681969801, guid: a338f8ebf3718cb4899d6c67a83d6a16, type: 3}
   iceEffectPrefab: {fileID: 5262930379066569760, guid: 338edd6eabeeefc4e8b28784ba1792c3, type: 3}
   normalRemovalSound: {fileID: 8300000, guid: b3ba205bb397b6445aaa7d74502ed8a3, type: 3}
   bombExplosionSound: {fileID: 8300000, guid: 8ee269116cfd70546929db0e348bdf7a, type: 3}
   iceMeltSound: {fileID: 8300000, guid: 9f787ba8925fcd94fb2faaa44f44e182, type: 3}
+  iceReflectionSound: {fileID: 8300000, guid: b087f6e56ca146847868f9bbf4747ca6, type: 3}
+  reflectionSound: {fileID: 8300000, guid: b7fc3be66aeb3e942afe20530ec0abe2, type: 3}
   sprites:
   - {fileID: 21300000, guid: 8fa3a0124200ec646a55afb343f19bfc, type: 3}
   - {fileID: 21300000, guid: 46c962cc10edda54e93a46de743d90fd, type: 3}
