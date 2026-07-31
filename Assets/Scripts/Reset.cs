@@ -5,15 +5,22 @@ using UnityEngine;
 public class Reset : MonoBehaviour
 {
     [SerializeField] GameObject player; // Reference to the player GameObject
+    [SerializeField] GameObject Grid;
     public PlayerController playerController; // Reference to the PlayerController script
     
     public static Vector3 startpos;
 
     void Start()
     {
+        Instance();
+        DontDestroyOnLoad(Camera.main.gameObject);
+    }
+
+    void Instance()
+    {
         startpos = new Vector3(Camera.main.transform.position.x-5f, Camera.main.transform.position.y-3f, 0f);
         Instantiate(player, startpos, Quaternion.identity); // Instantiate the player at the start position
-        DontDestroyOnLoad(Camera.main.gameObject);
+        Instantiate(Grid, Vector3.zero, Quaternion.identity);
     }
     // Start is called before the first frame updat
     // Update is called once per frame

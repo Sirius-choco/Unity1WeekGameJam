@@ -13,6 +13,15 @@ public class CloudManager : MonoBehaviour
 
     private Ray ray;
     private RaycastHit2D hit;
+    public static CloudManager instance;
+
+    private void Awake()
+    {
+        if (instance == null)
+        {
+            instance = this;
+        }
+    }
     void Start()
     {
         cloudPosition = this.transform.position;
