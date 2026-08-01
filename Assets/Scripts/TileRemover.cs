@@ -51,6 +51,7 @@ public class TileRemover : MonoBehaviour
     private bool isRemoving = false;
     public static TileRemover instance;
 
+    private bool BomeExploded = false;
 
     private void Awake()
     {
@@ -182,7 +183,7 @@ public class TileRemover : MonoBehaviour
         // 爆弾本体を削除
         PlayRemovalSound(bombTile);
         tilemap.SetTile(bombPosition, null);
-
+        BomeExploded = true;
         // 周囲8マスを調べる
         for (int x = -1; x <= 1; x++)
         {
@@ -200,6 +201,7 @@ public class TileRemover : MonoBehaviour
                 RemoveTile(targetPosition);
             }
         }
+        BomeExploded = false;
     }
 
     private void RemoveTile(Vector3Int cellPosition)
@@ -221,7 +223,7 @@ public class TileRemover : MonoBehaviour
         Debug.Log(tilemap.GetSprite(cellPosition));
         foreach (var sprite in sprites)
         {
-            if (tilemap.GetSprite(cellPosition) == sprite)
+            if (tilemap.GetSprite(cellPosition) == sprite || BomeExploded)
             {
                 isRemoving = true; // Do not remove the tile if it matches any of the specified sprites
             }

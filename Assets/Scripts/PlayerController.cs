@@ -114,6 +114,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Harricane"))
         {
+            Debug.Log("Harricane collision detected. Applying upward force.");
             rb.AddForce(new Vector2(0, 50));
         }
     }
