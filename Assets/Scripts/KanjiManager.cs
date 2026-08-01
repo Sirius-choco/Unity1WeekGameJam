@@ -10,8 +10,15 @@ public class KanjiManager : MonoBehaviour
     private RaycastHit2D hit;
     // Start is called before the first frame update
 
+    [SerializeField]
+    private AudioClip kanjiClickSound;
+
     void ClickKanji()
     {
+        // 漢字をクリックしたときの効果音
+        if (SoundManager.instance != null &&kanjiClickSound != null)
+            SoundManager.instance.PlaySE(kanjiClickSound);
+       
         Destroy(this.gameObject);
         TileRemover.instance.MeltIce();
     }

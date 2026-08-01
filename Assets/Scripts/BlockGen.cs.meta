@@ -3,7 +3,9 @@ guid: 7746d776936438843922478377dde0dd
 MonoImporter:
   externalObjects: {}
   serializedVersion: 2
-  defaultReferences: []
+  defaultReferences:
+  - MoveBlock: {fileID: 8971268379710048242, guid: 6670499b48380b940a454aeef124f547, type: 3}
+  - blockGenerateSound: {fileID: 8300000, guid: afa2446cb3d2bf44bb389c345f07d84a, type: 3}
   executionOrder: 0
   icon: {instanceID: 0}
   userData: 
