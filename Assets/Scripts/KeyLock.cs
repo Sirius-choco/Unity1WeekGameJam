@@ -19,11 +19,7 @@ public class KeyLock : MonoBehaviour
             // Play a sound effect when the key is collected
             if (keyGetSound != null)
             {
-                AudioSource.PlayClipAtPoint(
-                    keyGetSound,
-                    transform.position,
-                    1.0f
-                );
+                SoundManager.instance.PlaySE(keyGetSound);
             }
             Destroy(keylockPrefab); // Destroy the key lock object when the player collides with it
             Destroy(this.gameObject); // Destroy the key lock object itself
