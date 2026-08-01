@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1079735726725444090}
   - component: {fileID: 707208120844327855}
   - component: {fileID: 2915814645621273197}
+  - component: {fileID: 7189378740843593827}
   m_Layer: 0
   m_Name: Key
   m_TagString: Untagged
@@ -114,9 +115,23 @@ CircleCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
+--- !u!114 &7189378740843593827
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7330404134044482198}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e0f810a95abaf744498fd3e7d82cc9ee, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  keylockPrefab: {fileID: 0}
+  keyGetSound: {fileID: 8300000, guid: b76d2f1cfc73b41478747b2c11fd1025, type: 3}
