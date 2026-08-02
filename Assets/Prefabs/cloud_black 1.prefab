@@ -135,3 +135,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   harricanePrefab: {fileID: 8265340461799792304, guid: ec09f09bb63c9f443bbd28005ede3aef, type: 3}
   whiteCloudPrefab: {fileID: 3166347511579168569, guid: 0ccc79146f78e454f8c402bb6e2b0c28, type: 3}
+  cloudClickSound: {fileID: 8300000, guid: bcdeaf7bbdbde904fa370a953a7e080d, type: 3}

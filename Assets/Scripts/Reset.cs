@@ -30,7 +30,7 @@ public class Reset : MonoBehaviour
         {
             startpos = new Vector3(Camera.main.transform.position.x-5f, Camera.main.transform.position.y-3f, 0f); // Reset player position to start position
             // Reset the scene or perform any other reset logic here
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Stage_choco"); // Replace \"GameScene\" with the name of your scene
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Stage_Aoki"); // Replace \"GameScene\" with the name of your scene
         }
     }
 }
