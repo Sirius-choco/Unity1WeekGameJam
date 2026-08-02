@@ -8,6 +8,8 @@ public class Goal : MonoBehaviour
     public GameObject ScoreCanvas; // Reference to the player GameObject
     public Text text;
     public static bool isGoal = false;
+
+    private float cleartime;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,10 +20,12 @@ public class Goal : MonoBehaviour
         if(other.CompareTag("Player"))
         {
             Debug.Log("Goal");
+            cleartime = Time.time - PresidentCamera.time;
             //ここにゴールしたときの処理を書く
             ScoreCanvas.SetActive(true);
-            text.text = "Time: " + Time.time.ToString("F2") + "s";
+            text.text = "Time: " + cleartime.ToString("F2") + "s";
             isGoal = true;
+            PresidentCamera.isloop = true;
         }
     }
     public void Update()
@@ -29,8 +33,9 @@ public class Goal : MonoBehaviour
         if(Input.GetKeyDown(KeyCode.R) && isGoal)
         {
             isGoal = false;
-            Camera.main.transform.position = new Vector3(0, 0, -100);
-            UnityEngine.SceneManagement.SceneManager.LoadScene("Stage_choco");
+            //Camera.main.transform.position = new Vector3(0, 0, -100);
+            PresidentCamera.tmptime = Time.time;
+            UnityEngine.SceneManagement.SceneManager.LoadScene("Stage");
         }
     }
 }

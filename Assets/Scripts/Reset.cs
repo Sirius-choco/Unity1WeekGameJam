@@ -7,6 +7,7 @@ public class Reset : MonoBehaviour
     [SerializeField] GameObject player; // Reference to the player GameObject
     [SerializeField] GameObject Grid;
     public PlayerController playerController; // Reference to the PlayerController script
+    public static bool isResetting = false; // Flag to indicate if the player is currently resetting
     
     public static Vector3 startpos;
 
@@ -28,6 +29,7 @@ public class Reset : MonoBehaviour
     {
         if(Input.GetKeyDown(KeyCode.R) && !Cameramove.instance.isMoving_horizontal && !Cameramove.instance.isMoving_vertical && !(Setting.isSettingOpen || Goal.isGoal))
         {
+            isResetting = true; // Set the resetting flag to true
             startpos = new Vector3(Camera.main.transform.position.x-5f, Camera.main.transform.position.y-3f, 0f); // Reset player position to start position
             // Reset the scene or perform any other reset logic here
             UnityEngine.SceneManagement.SceneManager.LoadScene("Stage"); // Replace \"GameScene\" with the name of your scene

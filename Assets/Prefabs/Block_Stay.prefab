@@ -144,3 +144,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveBlock: {fileID: 8971268379710048242, guid: 6670499b48380b940a454aeef124f547, type: 3}
+  blockGenerateSound: {fileID: 8300000, guid: afa2446cb3d2bf44bb389c345f07d84a, type: 3}
