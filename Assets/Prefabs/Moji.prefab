@@ -435,3 +435,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Kanji: {fileID: 6979555888884047825}
+  kanjiClickSound: {fileID: 8300000, guid: b3ba205bb397b6445aaa7d74502ed8a3, type: 3}
