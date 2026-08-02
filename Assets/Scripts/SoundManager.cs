@@ -29,4 +29,14 @@ public class SoundManager : MonoBehaviour
 
         audioSource.PlayOneShot(sound);
     }
+
+    public void VolumeSE(float volume)
+    {
+        if (audioSource == null)
+        {
+            return;
+        }
+
+        audioSource.volume = volume;
+    }
 }

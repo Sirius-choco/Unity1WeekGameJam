@@ -56,6 +56,13 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        UpdateWalkSound();
+        if(Setting.isSettingOpen || Goal.isGoal)
+        {
+            if (walkAudioSource.isPlaying)
+                walkAudioSource.Stop();
+            return;
+        }
         // A・Dまたは左右矢印キー
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
@@ -66,12 +73,23 @@ public class PlayerController : MonoBehaviour
             if (SoundManager.instance != null && jumpSound != null)
                 SoundManager.instance.PlaySE(jumpSound);            
         }
-        UpdateWalkSound();
+        
     }
 
 
     private void FixedUpdate()
     {
+        if(Setting.isSettingOpen || Goal.isGoal)
+        {
+            animator.SetBool("Move", false);
+            rb.constraints = RigidbodyConstraints2D.FreezeAll;
+            return;
+        }
+        else
+        {
+            rb.constraints = RigidbodyConstraints2D.None;
+            rb.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
         Vector2 velocity = rb.velocity;
 
         // 横方向の速度を変更
