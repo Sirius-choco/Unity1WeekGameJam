@@ -24,7 +24,7 @@ public class BlockGen : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && !(Goal.isGoal || Setting.isSettingOpen))
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             hit = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);

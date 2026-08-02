@@ -26,7 +26,7 @@ public class KanjiManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !Setting.isSettingOpen)
+        if (Input.GetMouseButtonDown(0) && !(Setting.isSettingOpen || Goal.isGoal))
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             hit = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);

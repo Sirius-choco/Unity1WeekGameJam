@@ -17,7 +17,7 @@ public class Setting : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Escape))
+        if(Input.GetKeyDown(KeyCode.Escape) && !Goal.isGoal)
         {
             canvas.enabled = !canvas.enabled;
             isSettingOpen = !isSettingOpen;

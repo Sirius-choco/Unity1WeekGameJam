@@ -45,7 +45,7 @@ public class CloudManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetMouseButtonDown(0) && !Setting.isSettingOpen)
+        if (Input.GetMouseButtonDown(0) && !(Setting.isSettingOpen || Goal.isGoal))
         {
             ray = Camera.main.ScreenPointToRay(Input.mousePosition);
             hit = Physics2D.Raycast((Vector2)ray.origin, (Vector2)ray.direction);
@@ -53,7 +53,6 @@ public class CloudManager : MonoBehaviour
             {
                 ClickCloud();
             }
-
         }
         // Optional: Add any logic you want to execute every frame
     }
