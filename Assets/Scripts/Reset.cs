@@ -26,7 +26,7 @@ public class Reset : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.R) && !Cameramove.instance.isMoving_horizontal && !Cameramove.instance.isMoving_vertical)
+        if(Input.GetKeyDown(KeyCode.R) && !Cameramove.instance.isMoving_horizontal && !Cameramove.instance.isMoving_vertical && !(Setting.isSettingOpen || Goal.isGoal))
         {
             startpos = new Vector3(Camera.main.transform.position.x-5f, Camera.main.transform.position.y-3f, 0f); // Reset player position to start position
             // Reset the scene or perform any other reset logic here

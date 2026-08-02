@@ -214,7 +214,7 @@ MonoBehaviour:
     m_Bits: 64
   jumpSound: {fileID: 8300000, guid: ceebd42263dcdac44bcae0aff9703dff, type: 3}
   walkSound: {fileID: 8300000, guid: 47d16b799a308ac49ae1fd818a4e4273, type: 3}
-  walkSoundInterval: 0.35
+  walkAudioSource: {fileID: 0}
   isFacingRight: 1
 --- !u!95 &5395795388455737571
 Animator:
@@ -246,7 +246,7 @@ AudioSource:
   m_GameObject: {fileID: 5466647357202165075}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -1594130746022008457, guid: 92074a21ed5c6c44c88338098983469e, type: 2}
   m_audioClip: {fileID: 8300000, guid: 47d16b799a308ac49ae1fd818a4e4273, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
