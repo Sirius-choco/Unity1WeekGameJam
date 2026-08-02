@@ -133,5 +133,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0f810a95abaf744498fd3e7d82cc9ee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  keylockPrefab: {fileID: 0}
+  keylockPrefab: {fileID: 6052284982012502953, guid: b98ec89ed44c7d14ca8db8a37ad3663a, type: 3}
   keyGetSound: {fileID: 8300000, guid: b76d2f1cfc73b41478747b2c11fd1025, type: 3}
