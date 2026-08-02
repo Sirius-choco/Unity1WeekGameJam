@@ -56,6 +56,10 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
+        if(Setting.isSettingOpen)
+        {
+            return;
+        }
         // A・Dまたは左右矢印キー
         horizontalInput = Input.GetAxisRaw("Horizontal");
 
@@ -72,6 +76,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
+        if(Setting.isSettingOpen)
+        {
+            return;
+        }
         Vector2 velocity = rb.velocity;
 
         // 横方向の速度を変更
