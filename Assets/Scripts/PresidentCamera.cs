@@ -4,8 +4,20 @@ using UnityEngine;
 
 public class PresidentCamera : MonoBehaviour
 {
+    public static float time;
+    public static float tmptime = 0;
+    public static bool isloop = false;
     void Awake()
     {
+        if(isloop && !Reset.isResetting)
+        {
+            time = Time.time;
+        }
+        else
+        {
+            time = tmptime;
+            Reset.isResetting = false; // Reset the flag after the scene is loaded
+        }
         // "MainCamera"タグを持つオブジェクトを検索
         GameObject[] objs = GameObject.FindGameObjectsWithTag("MainCamera");
 
