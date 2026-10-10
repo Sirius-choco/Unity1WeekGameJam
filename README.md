@@ -21,3 +21,4 @@
 
 ## デモ
 ゲームのデモになります。
+<img width="720" height="405" alt="Image" src="https://github.com/user-attachments/assets/3235e235-72ca-414c-8d66-6952c89d4c5d" />
