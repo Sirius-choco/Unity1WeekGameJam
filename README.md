@@ -22,3 +22,12 @@
 ## デモ
 ゲームのデモになります。
 <img width="720" height="405" alt="Image" src="https://github.com/user-attachments/assets/07edb440-6f96-48cd-bfd0-482039b43b76" />
+
+## クレジット
+
+制作者
+* Sirius-choco
+* michimichi
+
+素材提供:フォント
+* でんきチップ x8y12pxDenkiChip (SIL Open Font License : 患者長ひっく氏)
