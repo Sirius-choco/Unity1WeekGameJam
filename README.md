@@ -31,3 +31,4 @@
 
 素材提供:フォント
 * でんきチップ x8y12pxDenkiChip (SIL Open Font License : 患者長ひっく氏)
+https://hicchicc.github.io/00ff/
